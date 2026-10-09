@@ -8,7 +8,7 @@ import { DynamicBanner } from "@/components/smart/DynamicBanner";
 const getMediaUrl = (url: string | null) => {
   if (!url) return "";
   if (url.startsWith('http')) return url;
-  return `${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}${url}`;
+  return `${process.env.NEXT_PUBLIC_API_URL || ''}${url}`;
 };
 
 async function getFeaturedProducts(): Promise<Product[]> {

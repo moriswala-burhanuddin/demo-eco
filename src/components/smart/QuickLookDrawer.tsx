@@ -21,7 +21,7 @@ export function QuickLookDrawer({ product, isOpen, onClose }: QuickLookDrawerPro
   const getMediaUrl = (url: string | null) => {
     if (!url) return "";
     if (url.startsWith("http")) return url;
-    return `http://127.0.0.1:8000${url}`;
+    return `item.variant_details.product_image${url}`;
   };
 
   const handleAddToCart = () => {

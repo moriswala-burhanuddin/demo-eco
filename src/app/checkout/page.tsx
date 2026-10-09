@@ -288,7 +288,7 @@ export default function CheckoutPage() {
                     <Link href={`/products/${item.variant_details?.product_slug || ''}`} className="w-20 h-24 bg-background border border-border/50 rounded-xl flex items-center justify-center overflow-hidden relative shadow-sm group">
                         {item.variant_details?.product_image ? (
                             <img 
-                            src={item.variant_details.product_image.startsWith('http') ? item.variant_details.product_image : `http://127.0.0.1:8000${item.variant_details.product_image}`}
+                            src={item.variant_details.product_image.startsWith('http') ? item.variant_details.product_image : `item.variant_details.product_image${item.variant_details.product_image}`}
                             alt={item.variant_details?.product_name || "Product image"} 
                             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />

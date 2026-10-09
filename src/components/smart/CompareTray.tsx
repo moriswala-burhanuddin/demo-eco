@@ -34,7 +34,7 @@ export function CompareTray() {
               const getMediaUrl = (url: string) => {
                 if (!url) return "";
                 if (url.startsWith('http')) return url;
-                return `http://127.0.0.1:8000${url}`;
+                return `item.variant_details.product_image${url}`;
               };
               return (
                 <div key={product.id} className="relative w-14 h-14 rounded-xl overflow-hidden bg-secondary border border-border/50 group shadow-sm">

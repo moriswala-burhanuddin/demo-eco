@@ -16,7 +16,7 @@ export function ProductCardCinematic({ product }: { product: Product }) {
   const getMediaUrl = (url: string | null) => {
     if (!url) return "";
     if (url.startsWith('http')) return url;
-    return `http://127.0.0.1:8000${url}`;
+    return `item.variant_details.product_image${url}`;
   };
 
   const mainImage = product.media?.[0]?.webp_url || product.media?.[0]?.original_url || "";

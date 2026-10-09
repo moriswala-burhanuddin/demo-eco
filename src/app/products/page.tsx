@@ -14,7 +14,7 @@ async function getProducts(searchParams?: { [key: string]: string | string[] | u
         if (value) query.append(key, value.toString());
       });
     }
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1'}/catalog/products/?${query.toString()}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/v1'}/catalog/products/?${query.toString()}`, {
       cache: 'no-store',
     });
     if (!res.ok) return [];

@@ -50,7 +50,7 @@ export function CartDrawer() {
                   <Link href={`/products/${item.variant_details?.product_slug || ''}`} onClick={() => setIsOpen(false)} className="block w-24 h-32 bg-secondary border flex items-center justify-center overflow-hidden relative group">
                      {item.variant_details?.product_image ? (
                         <img 
-                          src={item.variant_details.product_image.startsWith('http') ? item.variant_details.product_image : `http://127.0.0.1:8000${item.variant_details.product_image}`}
+                          src={item.variant_details.product_image.startsWith('http') ? item.variant_details.product_image : `item.variant_details.product_image${item.variant_details.product_image}`}
                           alt={item.variant_details?.product_name || "Product image"} 
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
