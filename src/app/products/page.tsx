@@ -6,20 +6,23 @@ import { SlidersHorizontalIcon as SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { FilterSidebar } from '@/components/smart/FilterSidebar';
 
+import { MOCK_PRODUCTS } from '@/lib/mockData';
+
 async function getProducts(searchParams?: { [key: string]: string | string[] | undefined }): Promise<Product[]> {
   try {
-    const query = new URLSearchParams();
+    let filtered = [...MOCK_PRODUCTS];
     if (searchParams) {
-      Object.entries(searchParams).forEach(([key, value]) => {
-        if (value) query.append(key, value.toString());
-      });
+      const category = searchParams.category as string;
+      const brand = searchParams.brand as string;
+      const color = searchParams.color as string;
+      const size = searchParams.size as string;
+
+      if (category) filtered = filtered.filter(p => p.category?.slug === category);
+      if (brand) filtered = filtered.filter(p => p.brand?.slug === brand);
+      if (color) filtered = filtered.filter(p => p.variants.some((v: any) => v.color_name === color));
+      if (size) filtered = filtered.filter(p => p.variants.some((v: any) => v.size_name === size));
     }
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/v1'}/catalog/products/?${query.toString()}`, {
-      cache: 'no-store',
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    return data.results || data;
+    return filtered;
   } catch {
     return [];
   }
